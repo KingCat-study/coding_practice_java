@@ -14,6 +14,8 @@ public class palindrome {
             if(val.equals(sb.reverse().toString())) {
                 count++;
             }
+
+
         }
 
         System.out.println(count);
