@@ -2,7 +2,7 @@ package inflearn.java_algorithm_solving;
 
 import java.util.Scanner;
 
-public class findCharacter_1 {
+public class findCharacter_1_01 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
