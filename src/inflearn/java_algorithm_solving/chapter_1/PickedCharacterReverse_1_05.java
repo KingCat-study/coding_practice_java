@@ -1,4 +1,4 @@
-package inflearn.java_algorithm_solving;
+package inflearn.java_algorithm_solving.chapter_1;
 
 /*
 

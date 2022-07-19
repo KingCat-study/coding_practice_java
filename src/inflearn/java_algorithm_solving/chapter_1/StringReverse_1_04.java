@@ -1,4 +1,4 @@
-package inflearn.java_algorithm_solving;
+package inflearn.java_algorithm_solving.chapter_1;
 
 import java.util.ArrayList;
 import java.util.Scanner;

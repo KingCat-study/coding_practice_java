@@ -1,4 +1,4 @@
-package inflearn.java_algorithm_solving;
+package inflearn.java_algorithm_solving.chapter_1;
 
 /*
 9. 숫자만 추출

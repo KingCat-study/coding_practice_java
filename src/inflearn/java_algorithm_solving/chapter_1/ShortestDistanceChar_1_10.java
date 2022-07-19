@@ -1,4 +1,4 @@
-package inflearn.java_algorithm_solving;
+package inflearn.java_algorithm_solving.chapter_1;
 
 /*
 10. 가장 짧은 문자거리
