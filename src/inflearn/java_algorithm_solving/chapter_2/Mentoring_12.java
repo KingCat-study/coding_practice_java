@@ -1,5 +1,6 @@
 package inflearn.java_algorithm_solving.chapter_2;
 
+import java.util.Hashtable;
 import java.util.Scanner;
 
 /*
@@ -47,56 +48,63 @@ M번의 수학성적이 주어지면 멘토와 멘티가 되는 짝을 만들 �
 public class Mentoring_12 {
     public static void main(String[] args) {
 
-//        Scanner sc = new Scanner(System.in);
-//
-//        int n = sc.nextInt();
-//        int m = sc.nextInt();
-//
-//        int[][] mTest = new int[m][n];
-//
-//        for (int i = 0; i < m; i++) {
-//            for (int j = 0; j < n; j++) {
-//                mTest[i][j] = sc.nextInt();
-//            }
-//        }
+        Scanner sc = new Scanner(System.in);
 
-        /*
-        mtest 0 : (3,1)(3,2)(4,2)
-        mtest 1 :
-        mtest 2 :
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
-        reverseMtest 0 : (2,1),(2,4),(2,3),(1,4),(1,3)
-        reverseMtest 1 : (1,2),(1,3),(1,4),(3,4)
-        reverseMtest 2 : (2,4),(2,1),(2,3),(4,1),(4,3)
-         */
+        int[][] mTest = new int[m][n];
 
-//        for (int i = 0; i < m; i++) {
-//            for (int j = 0; j < n; j++) {
-//                System.out.print(mTest[i][j]);
-//            }
-//            System.out.println();
-//        }
-        //        0 1   0 2   0 3   1 2   1 3  2 3
-        //3412 : (3,4),(3,1),(3,2),(4,1),(4,2),(1,2)
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                mTest[i][j] = sc.nextInt();
+            }
+        }
 
-        String str = "3412";
+        Hashtable<String, String> mentoTable = new Hashtable<>();
 
-        char[] chars = str.toCharArray();
+        for (int i = 0; i < m; i++) {
+            StringBuilder sb = new StringBuilder();
+            for (int j = 0; j < n; j++) {
+                sb.append(mTest[i][j]).append(" ");
+            }
+            putMento(mentoTable,sb.toString());
+        }
+
+        for (int i = 0; i < m; i++) {
+            StringBuilder sb = new StringBuilder();
+            for (int j = 0; j < n; j++) {
+                sb.append(mTest[i][j]).append(" ");
+            }
+            removeMento(mentoTable,sb.toString());
+        }
+
+        System.out.println(mentoTable.size());
+    }
+
+    public static void putMento(Hashtable<String, String> mentoTable , String mTest) {
+
+        String[] chars = mTest.split(" ");
 
         for (int i = 0; i < chars.length-1; i++) {
             for (int j = i+1; j < chars.length; j++) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(chars[i]).append(chars[j]);
-            }
-        }
-
-        for (int i = chars.length-1; i > 0; i--) {
-            for (int j = i-1; j >= 0; j--) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(chars[i]).append(chars[j]);
-                System.out.println(sb.toString());
+                sb.append(chars[i]).append("_").append(chars[j]);
+                mentoTable.put(sb.toString(), sb.toString());
             }
         }
     }
 
+    public static void removeMento(Hashtable<String, String> mentoTable , String mTest) {
+
+        String[] chars = mTest.split(" ");
+
+        for (int i = chars.length-1; i > 0; i--) {
+            for (int j = i-1; j >= 0; j--) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(chars[i]).append("_").append(chars[j]);
+                mentoTable.remove(sb.toString());
+            }
+        }
+    }
 }
